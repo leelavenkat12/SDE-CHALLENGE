@@ -1,0 +1,18 @@
+class Solution {
+    double power(double x, long long n) {
+        if (n == 0) return 1.0;
+        if (n == 1) return x;
+
+        if (n % 2 == 0) {
+            return power(x * x, n / 2);
+        }
+        return x * power(x, n - 1);
+    }
+public:
+    double myPow(double x, long long n) {
+        if (n < 0) {
+            return 1.0 / power(x, -(long long)n);
+        }
+        return power(x, n);
+    }
+};
